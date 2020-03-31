@@ -1,7 +1,6 @@
 name: internet_speed_test
 description: Internet speed test plugin to integrate it in your app whenever you want.
 version: 1.0.0
-author:
 homepage: https://github.com/TahaMalas/internet_speed_test.git
 
 environment:
