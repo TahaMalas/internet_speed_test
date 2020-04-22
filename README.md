@@ -8,7 +8,7 @@ Internet speed test plugin to integrate it in your app whenever you want.
 
 ```yaml
 dependencies:
-  internet_speed_test: ^1.0.0
+  internet_speed_test: ^1.0.1
 ```
 
 ### Example

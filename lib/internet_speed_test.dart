@@ -41,10 +41,8 @@ class InternetSpeedTest {
             print('download steps is $downloadRate}');
             double average = (downloadRate ~/ downloadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
-            if (average > 800) {
               average /= 1000;
               unit = SpeedUnit.Mbps;
-            }
             _callbacksById[call.arguments["id"]].item3(average, unit);
             downloadSteps = 0;
             downloadRate = 0;
@@ -64,10 +62,8 @@ class InternetSpeedTest {
             if (rate != 0) downloadSteps++;
             downloadRate += rate.toInt();
             SpeedUnit unit = SpeedUnit.Kbps;
-            if (rate > 800) {
               rate /= 1000;
               unit = SpeedUnit.Mbps;
-            }
             _callbacksById[call.arguments["id"]]
                 .item2(call.arguments['percent'], rate, unit);
           }
@@ -82,10 +78,8 @@ class InternetSpeedTest {
             print('download steps is $uploadRate}');
             double average = (uploadRate ~/ uploadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
-            if (average > 800) {
               average /= 1000;
               unit = SpeedUnit.Mbps;
-            }
             _callbacksById[call.arguments["id"]].item3(average, unit);
             uploadSteps = 0;
             uploadRate = 0;
@@ -102,10 +96,8 @@ class InternetSpeedTest {
             if (rate != 0) uploadSteps++;
             uploadRate += rate.toInt();
             SpeedUnit unit = SpeedUnit.Kbps;
-            if (rate > 800) {
               rate /= 1000;
               unit = SpeedUnit.Mbps;
-            }
             _callbacksById[call.arguments["id"]]
                 .item2(call.arguments['percent'], rate, unit);
           }
