@@ -22,17 +22,17 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
         let args = argsMap["id"] as! Int
         switch args {
         case 0:
-            startListening(args: args, flutterResult: result, methodName: "startDownloadTesting")
+            startListening(args: args, flutterResult: result, methodName: "startDownloadTesting", argsMap["testServer"] as! String)
             break
         case 1:
-            startListening(args: args, flutterResult: result, methodName: "startUploadTesting")
+            startListening(args: args, flutterResult: result, methodName: "startUploadTesting", argsMap["testServer"] as! String)
             break
         default:
             break
         }
     }
     
-    func startListening(args: Any, flutterResult: FlutterResult, methodName:String) {
+    func startListening(args: Any, flutterResult: FlutterResult, methodName:String, testServer: String) {
         print("Method name is \(methodName)")
         let currentListenerId = args as! Int
         print("id is \(currentListenerId)")
@@ -49,7 +49,7 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
 //                        switch hostResult {
 //                        case .value(let fromUrl, let timeout):
 //                            print("timeout is \(timeout)")
-                    self.speedTest.runDownloadTest(for: URL(string: "http://ipv4.ikoula.testdebit.info/1M.iso")!, size: 200, timeout: 20000, current: { (currentSpeed) in
+                    self.speedTest.runDownloadTest(for: URL(string: testServer)!, size: 200, timeout: 20000, current: { (currentSpeed) in
                                 DispatchQueue.main.async {
                                     var argsMap: [String: Any] = [:]
                                     argsMap["id"] = currentListenerId
@@ -98,7 +98,7 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
                     
 //                    break
                 case "startUploadTesting":
-                    self.speedTest.runUploadTest(for: URL(string: "http://ipv4.ikoula.testdebit.info/")!, size: 200, timeout: 20000, current: { (currentSpeed) in
+                    self.speedTest.runUploadTest(for: URL(string: testServer)!, size: 200, timeout: 20000, current: { (currentSpeed) in
                                                    DispatchQueue.main.async {
                                                        var argsMap: [String: Any] = [:]
                                                        argsMap["id"] = currentListenerId

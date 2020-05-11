@@ -38,8 +38,8 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
         val argsMap = arguments as Map<*, *>
 
         when (val args = argsMap["id"] as Int) {
-            CallbacksEnum.START_DOWNLOAD_TESTING.ordinal -> startListening(args, result, "startDownloadTesting")
-            CallbacksEnum.START_UPLOAD_TESTING.ordinal -> startListening(args, result, "startUploadTesting")
+            CallbacksEnum.START_DOWNLOAD_TESTING.ordinal -> startListening(args, result, "startDownloadTesting", argsMap["testServer"] as String)
+            CallbacksEnum.START_UPLOAD_TESTING.ordinal -> startListening(args, result, "startUploadTesting", argsMap["testServer"] as String)
         }
     }
 
@@ -53,7 +53,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
 
     private val callbackById: MutableMap<Int, Runnable> = mutableMapOf()
 
-    fun startListening(args: Any, result: Result, methodName: String) {
+    fun startListening(args: Any, result: Result, methodName: String, testServer: String) {
         // Get callback id
         println("testttt")
         val currentListenerId = args as Int
@@ -92,7 +92,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
-                        })
+                        }, testServer)
                     }
                     "startUploadTesting" -> {
                         testUploadSpeed(object : TestListener {
@@ -121,7 +121,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
-                        })
+                        }, testServer)
                     }
 
                 }
@@ -136,7 +136,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
         result.success(null)
     }
 
-    private fun testUploadSpeed(testListener: TestListener) {
+    private fun testUploadSpeed(testListener: TestListener, testServer: String) {
         // add a listener to wait for speedtest completion and progress
         println("Testing Testing")
         speedTestSocket.addSpeedTestListener(object : ISpeedTestListener {
@@ -162,7 +162,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
             }
         })
 //        speedTestSocket.startFixedUpload("http://ipv4.ikoula.testdebit.info/", 10000000, 10000)
-        speedTestSocket.startUploadRepeat("http://ipv4.ikoula.testdebit.info/", 20000, 500, 2000, object : IRepeatListener {
+        speedTestSocket.startUploadRepeat(testServer, 20000, 500, 2000, object : IRepeatListener {
             override fun onCompletion(report: SpeedTestReport) {
                 // called when download/upload is complete
                 println("[COMPLETED] rate in octet/s : " + report.transferRateOctet)
@@ -181,7 +181,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
         println("After Testing")
     }
 
-    private fun testDownloadSpeed(testListener: TestListener) {
+    private fun testDownloadSpeed(testListener: TestListener, testServer: String) {
         // add a listener to wait for speedtest completion and progress
         println("Testing Testing")
         speedTestSocket.addSpeedTestListener(object : ISpeedTestListener {
@@ -209,7 +209,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
 //        speedTestSocket.startDownloadRepeat("http://ipv4.ikoula.testdebit.info/1M.iso", 10000)
 
 
-        speedTestSocket.startDownloadRepeat("http://ipv4.ikoula.testdebit.info/1M.iso",
+        speedTestSocket.startDownloadRepeat(testServer,
                 20000, 500, object : IRepeatListener {
             override fun onCompletion(report: SpeedTestReport) {
                 // called when download/upload is complete
@@ -219,7 +219,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
             }
 
             override fun onReport(report: SpeedTestReport) {
-            // called to notify download/upload progress
+                // called to notify download/upload progress
                 println("[PROGRESS] progress : ${report.progressPercent}%")
                 println("[PROGRESS] rate in octet/s : " + report.transferRateOctet)
                 println("[PROGRESS] rate in bit/s   : " + report.transferRateBit)

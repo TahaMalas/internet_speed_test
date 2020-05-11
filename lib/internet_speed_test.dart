@@ -41,8 +41,8 @@ class InternetSpeedTest {
             print('download steps is $downloadRate}');
             double average = (downloadRate ~/ downloadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
-              average /= 1000;
-              unit = SpeedUnit.Mbps;
+            average /= 1000;
+            unit = SpeedUnit.Mbps;
             _callbacksById[call.arguments["id"]].item3(average, unit);
             downloadSteps = 0;
             downloadRate = 0;
@@ -62,8 +62,8 @@ class InternetSpeedTest {
             if (rate != 0) downloadSteps++;
             downloadRate += rate.toInt();
             SpeedUnit unit = SpeedUnit.Kbps;
-              rate /= 1000;
-              unit = SpeedUnit.Mbps;
+            rate /= 1000;
+            unit = SpeedUnit.Mbps;
             _callbacksById[call.arguments["id"]]
                 .item2(call.arguments['percent'], rate, unit);
           }
@@ -78,8 +78,8 @@ class InternetSpeedTest {
             print('download steps is $uploadRate}');
             double average = (uploadRate ~/ uploadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
-              average /= 1000;
-              unit = SpeedUnit.Mbps;
+            average /= 1000;
+            unit = SpeedUnit.Mbps;
             _callbacksById[call.arguments["id"]].item3(average, unit);
             uploadSteps = 0;
             uploadRate = 0;
@@ -96,8 +96,8 @@ class InternetSpeedTest {
             if (rate != 0) uploadSteps++;
             uploadRate += rate.toInt();
             SpeedUnit unit = SpeedUnit.Kbps;
-              rate /= 1000;
-              unit = SpeedUnit.Mbps;
+            rate /= 1000;
+            unit = SpeedUnit.Mbps;
             _callbacksById[call.arguments["id"]]
                 .item2(call.arguments['percent'], rate, unit);
           }
@@ -116,6 +116,7 @@ class InternetSpeedTest {
   Future<CancelListening> _startListening(
       Tuple3<ErrorCallback, ProgressCallback, DoneCallback> callback,
       CallbacksEnum callbacksEnum,
+      String testServer,
       {Map<String, dynamic> args}) async {
     _channel.setMethodCallHandler(_methodCallHandler);
     int currentListenerId = callbacksEnum.index;
@@ -123,10 +124,7 @@ class InternetSpeedTest {
     _callbacksById[currentListenerId] = callback;
     await _channel.invokeMethod(
       "startListening",
-      {
-        'id': currentListenerId,
-        'args': args,
-      },
+      {'id': currentListenerId, 'args': args, 'testServer': testServer},
     );
     return () {
       _channel.invokeMethod("cancelListening", currentListenerId);
@@ -134,21 +132,22 @@ class InternetSpeedTest {
     };
   }
 
-  Future<CancelListening> startDownloadTesting({
-    @required DoneCallback onDone,
-    @required ProgressCallback onProgress,
-    @required ErrorCallback onError,
-  }) async {
+  Future<CancelListening> startDownloadTesting(
+      {@required DoneCallback onDone,
+      @required ProgressCallback onProgress,
+      @required ErrorCallback onError,
+      String testServer = 'http://ipv4.ikoula.testdebit.info/1M.iso'}) async {
     return await _startListening(Tuple3(onError, onProgress, onDone),
-        CallbacksEnum.START_DOWNLOAD_TESTING);
+        CallbacksEnum.START_DOWNLOAD_TESTING, testServer);
   }
 
   Future<CancelListening> startUploadTesting({
     @required DoneCallback onDone,
     @required ProgressCallback onProgress,
     @required ErrorCallback onError,
+    String testServer = 'http://ipv4.ikoula.testdebit.info/',
   }) async {
     return await _startListening(Tuple3(onError, onProgress, onDone),
-        CallbacksEnum.START_UPLOAD_TESTING);
+        CallbacksEnum.START_UPLOAD_TESTING, testServer);
   }
 }
