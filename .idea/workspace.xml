@@ -5,45 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d08f3a7f-6fc0-4431-8f3d-cb256301b342" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Extensions/URL+ping.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Extensions/URLResponse+Checking.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Helpers/HostURLFormatter.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Helpers/Result.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Network/DownloadService/CustomHostDownloadService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Network/HostPingService/DefaultHostPingService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Network/SpeedTestHostingService/SpeedTestHost.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Network/SpeedTestHostingService/SpeedTestService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Network/SpeedTestServiceAPI.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Network/UploadService/CustomHostUploadService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/Speed.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/SpeedTest.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Extensions/URL+ping.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Extensions/URLResponse+Checking.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Helpers/HostURLFormatter.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Helpers/Result.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Network/DownloadService/CustomHostDownloadService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Network/HostPingService/DefaultHostPingService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Network/SpeedTestHostingService/SpeedTestHost.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Network/SpeedTestHostingService/SpeedTestService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Network/SpeedTestServiceAPI.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Network/UploadService/CustomHostUploadService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/Speed.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/SpeedTest.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/example/ios/Runner/Connectedness.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/example/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/example/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/internet_speed_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/internet_speed_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/SwiftInternetSpeedTestPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/ios/Classes/SwiftInternetSpeedTestPlugin.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/Connectedness.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/internet_speed_test/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internet_speed_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/internet_speed_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftInternetSpeedTestPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftInternetSpeedTestPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/internet_speed_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/internet_speed_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -67,17 +41,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="-133">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ios/Classes/TestListener.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="483">
+              <caret line="58" column="40" lean-forward="true" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -92,6 +93,7 @@
       <find>ListenerEnum</find>
       <find>callbackById</find>
       <find>_channel</find>
+      <find>startLis</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,16 +107,17 @@
         <option value="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/lib/callbacks_enum.dart" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt" />
-        <option value="$PROJECT_DIR$/lib/internet_speed_test.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/lib/internet_speed_test.dart" />
+        <option value="$PROJECT_DIR$/ios/Classes/SwiftInternetSpeedTestPlugin.swift" />
+        <option value="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
+    <option name="x" value="521" />
     <option name="y" value="23" />
     <option name="width" value="1399" />
     <option name="height" value="825" />
@@ -126,11 +129,69 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tahamalas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internet_speed_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tahamalas" type="462c0819:PsiDirectoryNode" />
               <item name="internet_speed_test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -158,8 +219,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -226,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587578750746</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implement for iOS">
+      <created>1588592833621</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588592833623</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -239,9 +305,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="23" width="1399" height="825" extended-state="0" />
+    <frame x="521" y="23" width="1399" height="825" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23655121" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23655121" />
       <window_info id="Captures" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -251,16 +318,16 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.32970297" />
-      <window_info anchor="bottom" id="Run" order="1" weight="0.6821782" />
+      <window_info anchor="bottom" id="Run" order="1" weight="0.69440657" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32970297" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="4" weight="0.32967034" />
       <window_info anchor="bottom" id="Debug" order="5" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="6" visible="true" weight="0.6657572" />
+      <window_info anchor="bottom" id="Terminal" order="6" weight="0.6657572" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32970297" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3287858" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
@@ -274,7 +341,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Always return transfer rate with Mb/s instead of Kb/s" />
     <MESSAGE value="Fix readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix readme" />
+    <MESSAGE value="Implement for iOS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement for iOS" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/internet_speed_test_test.dart">
@@ -349,27 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Classes/TestListener.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/callbacks_enum.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Classes/SwiftInternetSpeedTestPlugin.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ios/Classes/Network/UploadService/CustomHostUploadService.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -389,39 +436,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/internet_speed_test.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="111" column="12" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="12" />
+        <state relative-caret-position="399">
+          <caret line="129" column="32" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/lib/callbacks_enum.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="4" selection-start-line="13" selection-end-line="14" />
+        <state relative-caret-position="210">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt">
+    <entry file="file://$PROJECT_DIR$/ios/Classes/SwiftInternetSpeedTestPlugin.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="147" column="13" lean-forward="true" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="295">
+          <caret line="109" column="46" lean-forward="true" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Classes/TestListener.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="58" column="40" lean-forward="true" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
         </state>
       </provider>
     </entry>

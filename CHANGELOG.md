@@ -1,3 +1,7 @@
+## 1.1.0
+
+* Adding the ability to customize your speed test server
+
 ## 1.0.2
 
 * Implement for iOS
