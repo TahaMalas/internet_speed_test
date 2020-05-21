@@ -22,10 +22,10 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
         let args = argsMap["id"] as! Int
         switch args {
         case 0:
-            startListening(args: args, flutterResult: result, methodName: "startDownloadTesting", argsMap["testServer"] as! String)
+            startListening(args: args, flutterResult: result, methodName: "startDownloadTesting", testServer: argsMap["testServer"] as! String)
             break
         case 1:
-            startListening(args: args, flutterResult: result, methodName: "startUploadTesting", argsMap["testServer"] as! String)
+            startListening(args: args, flutterResult: result, methodName: "startUploadTesting", testServer: argsMap["testServer"] as! String)
             break
         default:
             break
