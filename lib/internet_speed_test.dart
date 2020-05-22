@@ -125,7 +125,12 @@ class InternetSpeedTest {
     _callbacksById[currentListenerId] = callback;
     await _channel.invokeMethod(
       "startListening",
-      {'id': currentListenerId, 'args': args, 'testServer': testServer},
+      {
+        'id': currentListenerId,
+        'args': args,
+        'testServer': testServer,
+        'fileSize': fileSize
+      },
     );
     return () {
       _channel.invokeMethod("cancelListening", currentListenerId);
