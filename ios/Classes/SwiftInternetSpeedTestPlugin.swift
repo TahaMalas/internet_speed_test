@@ -117,9 +117,17 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
 //                    break
                 case "startUploadTesting":
                     self.speedTest.runUploadTest(for: URL(string: testServer)!, size: fileSize, timeout: 20000, current: { (currentSpeed) in
+                                                    var rate = currentSpeed.value
+                                                    if currentSpeed.units == .Kbps {
+                                                        rate = rate * 1000
+                                                    } else if currentSpeed.units == .Mbps {
+                                                        rate = rate * 1000 * 1000
+                                                    } else  {
+                                                        rate = rate * 1000 * 1000 * 1000
+                                                    }
                                                     var argsMap: [String: Any] = [:]
                                                     argsMap["id"] = currentListenerId
-                                                    argsMap["transferRate"] = currentSpeed.value
+                                                    argsMap["transferRate"] = rate
                                                     argsMap["percent"] = 50
                                                     argsMap["type"] = 2
                                                    DispatchQueue.main.async {
@@ -129,9 +137,17 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
                                                    switch resultSpeed {
                                                        
                                                    case .value(let finalSpeed):
+                                                        var rate = finalSpeed.value
+                                                        if finalSpeed.units == .Kbps {
+                                                            rate = rate * 1000
+                                                        } else if finalSpeed.units == .Mbps {
+                                                            rate = rate * 1000 * 1000
+                                                        } else  {
+                                                            rate = rate * 1000 * 1000 * 1000
+                                                        }
                                                         var argsMap: [String: Any] = [:]
                                                         argsMap["id"] = currentListenerId
-                                                        argsMap["transferRate"] = finalSpeed.value
+                                                        argsMap["transferRate"] = rate
                                                         argsMap["percent"] = 50
                                                         argsMap["type"] = 0
                                                         

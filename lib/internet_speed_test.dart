@@ -153,9 +153,11 @@ class InternetSpeedTest {
     @required DoneCallback onDone,
     @required ProgressCallback onProgress,
     @required ErrorCallback onError,
+    int fileSize = 200,
     String testServer = 'http://ipv4.ikoula.testdebit.info/',
   }) async {
     return await _startListening(Tuple3(onError, onProgress, onDone),
-        CallbacksEnum.START_UPLOAD_TESTING, testServer);
+        CallbacksEnum.START_UPLOAD_TESTING, testServer,
+        fileSize: fileSize);
   }
 }

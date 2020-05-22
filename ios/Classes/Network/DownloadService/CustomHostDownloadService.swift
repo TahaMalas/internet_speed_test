@@ -29,22 +29,25 @@ extension CustomHostDownloadService: URLSessionDownloadDelegate {
         let result = calculate(bytes: downloadTask.countOfBytesReceived, seconds: Date().timeIntervalSince(self.responseDate!))
         self.final(.value(result))
         responseDate = nil
-        latestDate = nil
     }
     
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-        print("url session1")
-        self.final(.error(NetworkError.requestFailed))
+        if error != nil {
+            print("url session1")
+            self.final(.error(NetworkError.requestFailed))
+            responseDate = nil
+        }
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        if task.state != URLSessionTask.State.completed || error != nil {
+        if error != nil {
             print(error.debugDescription)
             print("task is \(task.error.debugDescription)")
             
             print("error is \(error.debugDescription)")
             print("url session2")
             self.final(.error(NetworkError.requestFailed))
+            responseDate = nil
         }
     }
     
