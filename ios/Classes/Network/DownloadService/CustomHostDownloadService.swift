@@ -18,7 +18,7 @@ class CustomHostDownloadService: NSObject, SpeedService {
         self.current = current
         self.final = final
         let resultURL = HostURLFormatter(speedTestURL: url).downloadURL(size: fileSize)
-        URLSession(configuration: sessionConfiguration(timeout: timeout), delegate: self, delegateQueue: OperationQueue())
+        URLSession(configuration: sessionConfiguration(timeout: timeout), delegate: self, delegateQueue: OperationQueue.main)
             .downloadTask(with: resultURL)
             .resume()
     }
@@ -27,21 +27,19 @@ class CustomHostDownloadService: NSObject, SpeedService {
 extension CustomHostDownloadService: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         let result = calculate(bytes: downloadTask.countOfBytesReceived, seconds: Date().timeIntervalSince(self.responseDate!))
-        DispatchQueue.main.async {
-            self.final(.value(result))
-        }
+        self.final(.value(result))
+        responseDate = nil
+        latestDate = nil
     }
     
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-        DispatchQueue.main.async {
-            print("url session1")
-            self.final(.error(NetworkError.requestFailed))
-        }
+        print("url session1")
+        self.final(.error(NetworkError.requestFailed))
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        DispatchQueue.main.async {
-            
+        if task.state != URLSessionTask.State.completed || error != nil {
+            print(error.debugDescription)
             print("task is \(task.error.debugDescription)")
             
             print("error is \(error.debugDescription)")
@@ -64,8 +62,6 @@ extension CustomHostDownloadService: URLSessionDownloadDelegate {
         
         latestDate = currentTime
         
-        DispatchQueue.main.async {
-            self.current(current, average)
-        }
+       self.current(current, average)
     }
 }
