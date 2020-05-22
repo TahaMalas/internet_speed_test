@@ -129,7 +129,7 @@ class InternetSpeedTest {
         'id': currentListenerId,
         'args': args,
         'testServer': testServer,
-        'fileSize': fileSize
+        'fileSize': fileSize,
       },
     );
     return () {
