@@ -24,7 +24,7 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
         if let fileSizeArgument = argsMap["fileSize"] as? Int {
             fileSize = fileSizeArgument
         }
-        print("downloading file of size \(fileSize) Bytes")
+        print("file of size \(fileSize) Bytes")
         switch args {
         case 0:
             startListening(args: args, flutterResult: result, methodName: "startDownloadTesting", testServer: argsMap["testServer"] as! String, fileSize: fileSize)
