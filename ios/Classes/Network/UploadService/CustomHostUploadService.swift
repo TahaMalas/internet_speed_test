@@ -34,9 +34,8 @@ class CustomHostUploadService: NSObject, SpeedService {
 extension CustomHostUploadService: URLSessionDataDelegate {
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Swift.Void) {
         let result = calculate(bytes: dataTask.countOfBytesSent, seconds: Date().timeIntervalSince(self.responseDate!))
-        DispatchQueue.main.async {
-            self.final(.value(result))
-        }
+        self.final(.value(result))
+        responseDate = nil
     }
 }
 
@@ -56,20 +55,20 @@ extension CustomHostUploadService: URLSessionTaskDelegate {
         
         latestDate = currentTime
         
-        DispatchQueue.main.async {
-            self.current(current, average)
-        }
+        self.current(current, average)
     }
     
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-        DispatchQueue.main.async {
+        if error != nil {
             self.final(.error(NetworkError.requestFailed))
+            responseDate = nil
         }
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        DispatchQueue.main.async {
+        if error != nil {
             self.final(.error(NetworkError.requestFailed))
+            responseDate = nil
         }
     }
 }

@@ -20,19 +20,24 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
     private func mapToCall(result: FlutterResult, arguments: Any?) {
         let argsMap = arguments as! [String: Any]
         let args = argsMap["id"] as! Int
+        var fileSize = 200
+        if let fileSizeArgument = argsMap["fileSize"] as? Int {
+            fileSize = fileSizeArgument
+        }
+        print("file is of size \(fileSize) Bytes")
         switch args {
         case 0:
-            startListening(args: args, flutterResult: result, methodName: "startDownloadTesting", testServer: argsMap["testServer"] as! String)
+            startListening(args: args, flutterResult: result, methodName: "startDownloadTesting", testServer: argsMap["testServer"] as! String, fileSize: fileSize)
             break
         case 1:
-            startListening(args: args, flutterResult: result, methodName: "startUploadTesting", testServer: argsMap["testServer"] as! String)
+            startListening(args: args, flutterResult: result, methodName: "startUploadTesting", testServer: argsMap["testServer"] as! String, fileSize: fileSize)
             break
         default:
             break
         }
     }
     
-    func startListening(args: Any, flutterResult: FlutterResult, methodName:String, testServer: String) {
+    func startListening(args: Any, flutterResult: FlutterResult, methodName:String, testServer: String, fileSize: Int) {
         print("Method name is \(methodName)")
         let currentListenerId = args as! Int
         print("id is \(currentListenerId)")
@@ -49,39 +54,36 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
 //                        switch hostResult {
 //                        case .value(let fromUrl, let timeout):
 //                            print("timeout is \(timeout)")
-                    self.speedTest.runDownloadTest(for: URL(string: testServer)!, size: 200, timeout: 20000, current: { (currentSpeed) in
+                    self.speedTest.runDownloadTest(for: URL(string: testServer)!, size: fileSize, timeout: 20000, current: { (currentSpeed) in
+                                var argsMap: [String: Any] = [:]
+                                argsMap["id"] = currentListenerId
+                                argsMap["transferRate"] = self.getSpeedInBytes(speed: currentSpeed)
+                                argsMap["percent"] = 50
+                                argsMap["type"] = 2
                                 DispatchQueue.main.async {
-                                    var argsMap: [String: Any] = [:]
-                                    argsMap["id"] = currentListenerId
-                                    argsMap["transferRate"] = currentSpeed.value
-                                    argsMap["percent"] = 50
-                                    argsMap["type"] = 2
-                                    
                                     SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
                                 }
                             }, final: { (resultSpeed) in
                                 switch resultSpeed {
                                     
                                 case .value(let finalSpeed):
+                                    var argsMap: [String: Any] = [:]
+                                    argsMap["id"] = currentListenerId
+                                    argsMap["transferRate"] = self.getSpeedInBytes(speed: finalSpeed)
+                                    argsMap["percent"] = 50
+                                    argsMap["type"] = 0
                                     DispatchQueue.main.async {
-                                        var argsMap: [String: Any] = [:]
-                                        argsMap["id"] = currentListenerId
-                                        argsMap["transferRate"] = finalSpeed.value
-                                        argsMap["percent"] = 50
-                                        argsMap["type"] = 0
-                                        
                                         SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
                                     }
                                 case .error(let error):
                                     print("Error is \(error.localizedDescription)")
-                                    
                                     var argsMap: [String: Any] = [:]
                                     argsMap["id"] = currentListenerId
                                     argsMap["speedTestError"] = error.localizedDescription
                                     argsMap["type"] = 1
-                                    
-                                    SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
-                                    
+                                    DispatchQueue.main.async {
+                                        SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
+                                    }
                                 }
                             })
                             break
@@ -98,27 +100,27 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
                     
 //                    break
                 case "startUploadTesting":
-                    self.speedTest.runUploadTest(for: URL(string: testServer)!, size: 200, timeout: 20000, current: { (currentSpeed) in
+                    self.speedTest.runUploadTest(for: URL(string: testServer)!, size: fileSize, timeout: 20000, current: { (currentSpeed) in
+                                                    var argsMap: [String: Any] = [:]
+                                                    argsMap["id"] = currentListenerId
+                                                    argsMap["transferRate"] = self.getSpeedInBytes(speed: currentSpeed)
+                                                    argsMap["percent"] = 50
+                                                    argsMap["type"] = 2
                                                    DispatchQueue.main.async {
-                                                       var argsMap: [String: Any] = [:]
-                                                       argsMap["id"] = currentListenerId
-                                                       argsMap["transferRate"] = currentSpeed.value
-                                                       argsMap["percent"] = 50
-                                                       argsMap["type"] = 2
-                                                       
                                                        SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
                                                    }
                                                }, final: { (resultSpeed) in
                                                    switch resultSpeed {
                                                        
                                                    case .value(let finalSpeed):
+                                                        
+                                                        var argsMap: [String: Any] = [:]
+                                                        argsMap["id"] = currentListenerId
+                                                        argsMap["transferRate"] = self.getSpeedInBytes(speed: finalSpeed)
+                                                        argsMap["percent"] = 50
+                                                        argsMap["type"] = 0
+                                                        
                                                        DispatchQueue.main.async {
-                                                           var argsMap: [String: Any] = [:]
-                                                           argsMap["id"] = currentListenerId
-                                                           argsMap["transferRate"] = finalSpeed.value
-                                                           argsMap["percent"] = 50
-                                                           argsMap["type"] = 0
-                                                           
                                                            SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
                                                        }
                                                    case .error(let error):
@@ -128,9 +130,9 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
                                                        argsMap["id"] = currentListenerId
                                                        argsMap["speedTestError"] = error.localizedDescription
                                                        argsMap["type"] = 1
-                                                       
-                                                       SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
-                                                       
+                                                       DispatchQueue.main.async {
+                                                        SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
+                                                       }
                                                    }
                                                })
                     break
@@ -141,6 +143,18 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
         }
         callbackById[currentListenerId] = fun
         fun()
+    }
+    
+    func getSpeedInBytes(speed: Speed) -> Double {
+        var rate = speed.value
+        if speed.units == .Kbps {
+            rate = rate * 1000
+        } else if speed.units == .Mbps {
+            rate = rate * 1000 * 1000
+        } else  {
+            rate = rate * 1000 * 1000 * 1000
+        }
+        return rate
     }
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
