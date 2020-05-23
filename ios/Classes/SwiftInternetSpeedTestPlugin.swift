@@ -55,14 +55,6 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
 //                        case .value(let fromUrl, let timeout):
 //                            print("timeout is \(timeout)")
                     self.speedTest.runDownloadTest(for: URL(string: testServer)!, size: fileSize, timeout: 20000, current: { (currentSpeed) in
-                                var rate = currentSpeed.value
-                                if currentSpeed.units == .Kbps {
-                                    rate = rate * 1000
-                                } else if currentSpeed.units == .Mbps {
-                                    rate = rate * 1000 * 1000
-                                } else  {
-                                    rate = rate * 1000 * 1000 * 1000
-                                }
                                 var argsMap: [String: Any] = [:]
                                 argsMap["id"] = currentListenerId
                                 argsMap["transferRate"] = self.getSpeedInBytes(speed: currentSpeed)
