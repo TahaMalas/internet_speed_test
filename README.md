@@ -8,7 +8,7 @@ Internet speed test plugin to integrate it in your app whenever you want.
 
 ```yaml
 dependencies:
-  internet_speed_test: ^1.1.1
+  internet_speed_test: ^1.1.2
 ```
 
 ### Example
@@ -107,6 +107,10 @@ http://ipv4.ikoula.testdebit.info/1M.iso
 And this for uploading
 http://ipv4.ikoula.testdebit.info/
 
+
+### Contributors
+
+The major contributor that made this package better for the iOS platform is [Akshat Sharma](https://github.com/aks3800) so a huge shoutout to him!
 
 ### Platforms
 

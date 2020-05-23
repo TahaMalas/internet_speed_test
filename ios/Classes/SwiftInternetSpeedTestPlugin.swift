@@ -42,7 +42,7 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
         let currentListenerId = args as! Int
         print("id is \(currentListenerId)")
 
-        var fun = {
+        let fun = {
             if (self.callbackById.contains(where: { (key, _) -> Bool in
                 print("does contain key \(key == currentListenerId)")
                 return key == currentListenerId
@@ -50,10 +50,6 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
                 print("inside if")
                 switch methodName {
                 case "startDownloadTesting" :
-//                    self.speedTest.findBestHost(from: 400, timeout: 10000) { (hostResult : Result<(URL, Int), SpeedTestError>) in
-//                        switch hostResult {
-//                        case .value(let fromUrl, let timeout):
-//                            print("timeout is \(timeout)")
                     self.speedTest.runDownloadTest(for: URL(string: testServer)!, size: fileSize, timeout: 20000, current: { (currentSpeed) in
                                 var argsMap: [String: Any] = [:]
                                 argsMap["id"] = currentListenerId
@@ -65,12 +61,11 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
                                 }
                             }, final: { (resultSpeed) in
                                 switch resultSpeed {
-                                    
                                 case .value(let finalSpeed):
                                     var argsMap: [String: Any] = [:]
                                     argsMap["id"] = currentListenerId
                                     argsMap["transferRate"] = self.getSpeedInBytes(speed: finalSpeed)
-                                    argsMap["percent"] = 50
+                                    argsMap["percent"] = 100
                                     argsMap["type"] = 0
                                     DispatchQueue.main.async {
                                         SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)

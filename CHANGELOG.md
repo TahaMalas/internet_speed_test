@@ -1,6 +1,10 @@
+## 1.1.2
+
+* Fix iOS download & upload issue
+
 ## 1.1.1
 
-* Fix iOS issue
+* Fix iOS build issue
 
 ## 1.1.0
 

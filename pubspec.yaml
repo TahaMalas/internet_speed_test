@@ -1,6 +1,6 @@
 name: internet_speed_test
 description: Internet speed test plugin to integrate it in your app whenever you want.
-version: 1.1.1
+version: 1.1.2
 homepage: https://github.com/TahaMalas/internet_speed_test.git
 
 environment:
@@ -27,6 +27,7 @@ flutter:
   plugin:
     androidPackage: com.tahamalas.internet_speed_test
     pluginClass: InternetSpeedTestPlugin
+
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

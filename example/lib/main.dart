@@ -63,6 +63,8 @@ class _MyAppState extends State<MyApp> {
                       print(
                           'the errorMessage $errorMessage, the speedTestError $speedTestError');
                     },
+                    testServer: 'https://speedtest.takamol.sy.prod.hosts.ooklaserver.net:8080/download?nocache=bc6eaf4b-8d4d-4756-9f77-9512655f6b2c&size=25000000&guid=ea24b1a6-eab7-4316-99d1-1971305e05d8',
+                    fileSize: 20000000,
                   );
                 },
               ),
@@ -99,6 +101,8 @@ class _MyAppState extends State<MyApp> {
                       print(
                           'the errorMessage $errorMessage, the speedTestError $speedTestError');
                     },
+                    testServer: 'https://speedtest.takamol.sy.prod.hosts.ooklaserver.net:8080/upload?nocache=a3fd0f07-a5f0-434c-900c-7aa5fd102858&guid=ea24b1a6-eab7-4316-99d1-1971305e05d8',
+                    fileSize: 20000000,
                   );
                 },
               ),

@@ -57,7 +57,6 @@ extension CustomHostDownloadService: URLSessionDownloadDelegate {
             latestDate = responseDate
             return
         }
-        
         let currentTime = Date()
         
         let current = calculate(bytes: bytesWritten, seconds: currentTime.timeIntervalSince(latesDate))

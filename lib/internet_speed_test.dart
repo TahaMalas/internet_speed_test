@@ -27,9 +27,9 @@ class InternetSpeedTest {
   int uploadSteps = 0;
 
   Future<void> _methodCallHandler(MethodCall call) async {
-//    print('arguments are ${call.arguments}');
+    print('arguments are ${call.arguments}');
 //    print('arguments type is  ${call.arguments['type']}');
-//    print('callbacks are $_callbacksById');
+    print('callbacks are $_callbacksById');
     switch (call.method) {
       case 'callListener':
         if (call.arguments["id"] as int ==
@@ -65,7 +65,7 @@ class InternetSpeedTest {
             rate /= 1000;
             unit = SpeedUnit.Mbps;
             _callbacksById[call.arguments["id"]]
-                .item2(call.arguments['percent'], rate, unit);
+                .item2(call.arguments['percent'].toDouble(), rate, unit);
           }
         } else if (call.arguments["id"] as int ==
             CallbacksEnum.START_UPLOAD_TESTING.index) {
@@ -96,10 +96,11 @@ class InternetSpeedTest {
             if (rate != 0) uploadSteps++;
             uploadRate += rate.toInt();
             SpeedUnit unit = SpeedUnit.Kbps;
-            rate /= 1000;
+            rate /= 1000.0;
             unit = SpeedUnit.Mbps;
-            _callbacksById[call.arguments["id"]]
-                .item2(call.arguments['percent'], rate, unit);
+              _callbacksById[call.arguments["id"]]
+                  .item2(call.arguments['percent'].toDouble(), rate, unit);
+
           }
         }
 //        _callbacksById[call.arguments["id"]](call.arguments["args"]);
@@ -110,7 +111,6 @@ class InternetSpeedTest {
     }
 
     _channel.invokeMethod("cancelListening", call.arguments["id"]);
-//    _callbacksById.remove(call.arguments["id"]);
   }
 
   Future<CancelListening> _startListening(
@@ -118,7 +118,7 @@ class InternetSpeedTest {
       CallbacksEnum callbacksEnum,
       String testServer,
       {Map<String, dynamic> args,
-      int fileSize = 200}) async {
+      int fileSize = 200000}) async {
     _channel.setMethodCallHandler(_methodCallHandler);
     int currentListenerId = callbacksEnum.index;
     print('test $currentListenerId');
@@ -142,7 +142,7 @@ class InternetSpeedTest {
       {@required DoneCallback onDone,
       @required ProgressCallback onProgress,
       @required ErrorCallback onError,
-      int fileSize = 200,
+      int fileSize = 200000,
       String testServer = 'http://ipv4.ikoula.testdebit.info/1M.iso'}) async {
     return await _startListening(Tuple3(onError, onProgress, onDone),
         CallbacksEnum.START_DOWNLOAD_TESTING, testServer,
@@ -153,7 +153,7 @@ class InternetSpeedTest {
     @required DoneCallback onDone,
     @required ProgressCallback onProgress,
     @required ErrorCallback onError,
-    int fileSize = 200,
+    int fileSize = 200000,
     String testServer = 'http://ipv4.ikoula.testdebit.info/',
   }) async {
     return await _startListening(Tuple3(onError, onProgress, onDone),
