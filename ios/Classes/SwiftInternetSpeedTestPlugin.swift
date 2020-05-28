@@ -119,6 +119,7 @@ public class SwiftInternetSpeedTestPlugin: NSObject, FlutterPlugin {
                                                            SwiftInternetSpeedTestPlugin.channel.invokeMethod("callListener", arguments: argsMap)
                                                        }
                                                    case .error(let error):
+                                                    
                                                        print("Error is \(error.localizedDescription)")
                                                        
                                                        var argsMap: [String: Any] = [:]

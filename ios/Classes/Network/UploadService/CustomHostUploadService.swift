@@ -19,13 +19,12 @@ class CustomHostUploadService: NSObject, SpeedService {
         self.final = final
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.timeoutInterval = timeout
         request.allHTTPHeaderFields = ["Content-Type": "application/octet-stream",
                                        "Accept-Encoding": "gzip, deflate",
                                        "Content-Length": "\(fileSize)",
                                        "Connection": "keep-alive"]
         
-        URLSession(configuration: sessionConfiguration(timeout: timeout), delegate: self, delegateQueue: OperationQueue.main)
+        URLSession(configuration: sessionConfiguration(timeout: timeout / 1000), delegate: self, delegateQueue: OperationQueue.main)
             .uploadTask(with: request, from: Data(count: fileSize))
             .resume()
     }
