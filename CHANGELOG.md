@@ -1,3 +1,7 @@
+## 1.1.2+1
+
+* Fix upload timeout with iOS
+
 ## 1.1.2
 
 * Fix iOS download & upload issue
