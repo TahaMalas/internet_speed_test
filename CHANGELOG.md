@@ -1,3 +1,7 @@
+## 1.5.0
+
+* Migrate to Flutter 2.2 and null-safety
+
 ## 1.1.2+1
 
 * Fix upload timeout with iOS

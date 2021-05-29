@@ -36,21 +36,22 @@ class InternetSpeedTest {
             CallbacksEnum.START_DOWNLOAD_TESTING.index) {
           if (call.arguments['type'] == ListenerEnum.COMPLETE.index) {
             downloadSteps++;
-            downloadRate += call.arguments['transferRate'] ~/ 1000;
+            downloadRate +=
+                int.parse((call.arguments['transferRate'] ~/ 1000).toString());
             print('download steps is $downloadSteps}');
             print('download steps is $downloadRate}');
             double average = (downloadRate ~/ downloadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
             average /= 1000;
             unit = SpeedUnit.Mbps;
-            _callbacksById[call.arguments["id"]].item3(average, unit);
+            _callbacksById[call.arguments["id"]]!.item3(average, unit);
             downloadSteps = 0;
             downloadRate = 0;
             _callbacksById.remove(call.arguments["id"]);
           } else if (call.arguments['type'] == ListenerEnum.ERROR.index) {
             print('onError : ${call.arguments["speedTestError"]}');
             print('onError : ${call.arguments["errorMessage"]}');
-            _callbacksById[call.arguments["id"]].item1(
+            _callbacksById[call.arguments["id"]]!.item1(
                 call.arguments['errorMessage'],
                 call.arguments['speedTestError']);
             downloadSteps = 0;
@@ -64,7 +65,7 @@ class InternetSpeedTest {
             SpeedUnit unit = SpeedUnit.Kbps;
             rate /= 1000;
             unit = SpeedUnit.Mbps;
-            _callbacksById[call.arguments["id"]]
+            _callbacksById[call.arguments["id"]]!
                 .item2(call.arguments['percent'].toDouble(), rate, unit);
           }
         } else if (call.arguments["id"] as int ==
@@ -73,21 +74,22 @@ class InternetSpeedTest {
             print('onComplete : ${call.arguments['transferRate']}');
 
             uploadSteps++;
-            uploadRate += call.arguments['transferRate'] ~/ 1000;
+            uploadRate +=
+                int.parse((call.arguments['transferRate'] ~/ 1000).toString());
             print('download steps is $uploadSteps}');
             print('download steps is $uploadRate}');
             double average = (uploadRate ~/ uploadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
             average /= 1000;
             unit = SpeedUnit.Mbps;
-            _callbacksById[call.arguments["id"]].item3(average, unit);
+            _callbacksById[call.arguments["id"]]!.item3(average, unit);
             uploadSteps = 0;
             uploadRate = 0;
             _callbacksById.remove(call.arguments["id"]);
           } else if (call.arguments['type'] == ListenerEnum.ERROR.index) {
             print('onError : ${call.arguments["speedTestError"]}');
             print('onError : ${call.arguments["errorMessage"]}');
-            _callbacksById[call.arguments["id"]].item1(
+            _callbacksById[call.arguments["id"]]!.item1(
                 call.arguments['errorMessage'],
                 call.arguments['speedTestError']);
           } else if (call.arguments['type'] == ListenerEnum.PROGRESS.index) {
@@ -98,9 +100,8 @@ class InternetSpeedTest {
             SpeedUnit unit = SpeedUnit.Kbps;
             rate /= 1000.0;
             unit = SpeedUnit.Mbps;
-              _callbacksById[call.arguments["id"]]
-                  .item2(call.arguments['percent'].toDouble(), rate, unit);
-
+            _callbacksById[call.arguments["id"]]!
+                .item2(call.arguments['percent'].toDouble(), rate, unit);
           }
         }
 //        _callbacksById[call.arguments["id"]](call.arguments["args"]);
@@ -117,7 +118,7 @@ class InternetSpeedTest {
       Tuple3<ErrorCallback, ProgressCallback, DoneCallback> callback,
       CallbacksEnum callbacksEnum,
       String testServer,
-      {Map<String, dynamic> args,
+      {Map<String, dynamic>? args,
       int fileSize = 200000}) async {
     _channel.setMethodCallHandler(_methodCallHandler);
     int currentListenerId = callbacksEnum.index;
@@ -139,9 +140,9 @@ class InternetSpeedTest {
   }
 
   Future<CancelListening> startDownloadTesting(
-      {@required DoneCallback onDone,
-      @required ProgressCallback onProgress,
-      @required ErrorCallback onError,
+      {required DoneCallback onDone,
+      required ProgressCallback onProgress,
+      required ErrorCallback onError,
       int fileSize = 200000,
       String testServer = 'http://ipv4.ikoula.testdebit.info/1M.iso'}) async {
     return await _startListening(Tuple3(onError, onProgress, onDone),
@@ -150,9 +151,9 @@ class InternetSpeedTest {
   }
 
   Future<CancelListening> startUploadTesting({
-    @required DoneCallback onDone,
-    @required ProgressCallback onProgress,
-    @required ErrorCallback onError,
+    required DoneCallback onDone,
+    required ProgressCallback onProgress,
+    required ErrorCallback onError,
     int fileSize = 200000,
     String testServer = 'http://ipv4.ikoula.testdebit.info/',
   }) async {
