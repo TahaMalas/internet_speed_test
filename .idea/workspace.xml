@@ -8,9 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d08f3a7f-6fc0-4431-8f3d-cb256301b342" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622292060884</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Migration to null-safety">
+      <created>1622292202317</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1622292202317</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -142,10 +147,10 @@
     </state>
     <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.983@0.23.1920.983" timestamp="1622289736060" />
     <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.985@0.23.1920.985" timestamp="1622290063282" />
-    <state x="345" y="90" key="CommitChangelistDialog2" timestamp="1622292060654">
+    <state x="345" y="90" key="CommitChangelistDialog2" timestamp="1622292202145">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
-    <state x="345" y="90" key="CommitChangelistDialog2/0.23.1920.985@0.23.1920.985" timestamp="1622292060654" />
+    <state x="345" y="90" key="CommitChangelistDialog2/0.23.1920.985@0.23.1920.985" timestamp="1622292202145" />
     <state width="1473" height="266" key="GridCell.Tab.0.bottom" timestamp="1622291957965">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
@@ -166,10 +171,10 @@
       <screen x="0" y="23" width="1920" height="983" />
     </state>
     <state x="469" y="153" key="SettingsEditor/0.23.1920.983@0.23.1920.983" timestamp="1622289397305" />
-    <state x="357" y="254" key="Vcs.Push.Dialog.v2" timestamp="1622292065828">
+    <state x="357" y="254" key="Vcs.Push.Dialog.v2" timestamp="1622292204913">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
-    <state x="357" y="254" key="Vcs.Push.Dialog.v2/0.23.1920.985@0.23.1920.985" timestamp="1622292065828" />
+    <state x="357" y="254" key="Vcs.Push.Dialog.v2/0.23.1920.985@0.23.1920.985" timestamp="1622292204913" />
     <state width="440" height="149" key="javadoc.popup.new" timestamp="1622289834496">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
