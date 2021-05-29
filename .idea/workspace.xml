@@ -8,14 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d08f3a7f-6fc0-4431-8f3d-cb256301b342" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/internet_speed_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/internet_speed_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -107,7 +100,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589239193149</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Migration to null-safety">
+      <created>1622291987179</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622291987179</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Migration to null-safety">
+      <created>1622292060884</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622292060884</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -126,7 +133,8 @@
     <MESSAGE value="Implement for iOS" />
     <MESSAGE value="Customizable test server" />
     <MESSAGE value="Fix iOS progress issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix iOS progress issue" />
+    <MESSAGE value="Migration to null-safety" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migration to null-safety" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="123" width="1720" height="783" key="AVDManager" timestamp="1622290063282">
@@ -134,26 +142,34 @@
     </state>
     <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.983@0.23.1920.983" timestamp="1622289736060" />
     <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.985@0.23.1920.985" timestamp="1622290063282" />
-    <state width="1473" height="266" key="GridCell.Tab.0.bottom" timestamp="1622291830414">
+    <state x="345" y="90" key="CommitChangelistDialog2" timestamp="1622292060654">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.bottom/0.23.1920.985@0.23.1920.985" timestamp="1622291830414" />
-    <state width="1473" height="266" key="GridCell.Tab.0.center" timestamp="1622291830413">
+    <state x="345" y="90" key="CommitChangelistDialog2/0.23.1920.985@0.23.1920.985" timestamp="1622292060654" />
+    <state width="1473" height="266" key="GridCell.Tab.0.bottom" timestamp="1622291957965">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.center/0.23.1920.985@0.23.1920.985" timestamp="1622291830413" />
-    <state width="1473" height="266" key="GridCell.Tab.0.left" timestamp="1622291830412">
+    <state width="1473" height="266" key="GridCell.Tab.0.bottom/0.23.1920.985@0.23.1920.985" timestamp="1622291957965" />
+    <state width="1473" height="266" key="GridCell.Tab.0.center" timestamp="1622291957964">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.left/0.23.1920.985@0.23.1920.985" timestamp="1622291830412" />
-    <state width="1473" height="266" key="GridCell.Tab.0.right" timestamp="1622291830413">
+    <state width="1473" height="266" key="GridCell.Tab.0.center/0.23.1920.985@0.23.1920.985" timestamp="1622291957964" />
+    <state width="1473" height="266" key="GridCell.Tab.0.left" timestamp="1622291957963">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.right/0.23.1920.985@0.23.1920.985" timestamp="1622291830413" />
+    <state width="1473" height="266" key="GridCell.Tab.0.left/0.23.1920.985@0.23.1920.985" timestamp="1622291957963" />
+    <state width="1473" height="266" key="GridCell.Tab.0.right" timestamp="1622291957964">
+      <screen x="0" y="23" width="1920" height="985" />
+    </state>
+    <state width="1473" height="266" key="GridCell.Tab.0.right/0.23.1920.985@0.23.1920.985" timestamp="1622291957964" />
     <state x="469" y="153" key="SettingsEditor" timestamp="1622289397305">
       <screen x="0" y="23" width="1920" height="983" />
     </state>
     <state x="469" y="153" key="SettingsEditor/0.23.1920.983@0.23.1920.983" timestamp="1622289397305" />
+    <state x="357" y="254" key="Vcs.Push.Dialog.v2" timestamp="1622292065828">
+      <screen x="0" y="23" width="1920" height="985" />
+    </state>
+    <state x="357" y="254" key="Vcs.Push.Dialog.v2/0.23.1920.985@0.23.1920.985" timestamp="1622292065828" />
     <state width="440" height="149" key="javadoc.popup.new" timestamp="1622289834496">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
