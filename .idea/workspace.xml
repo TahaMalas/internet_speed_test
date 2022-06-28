@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d08f3a7f-6fc0-4431-8f3d-cb256301b342" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/internet_speed_test/InternetSpeedTestPlugin.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/nishiyamaakito/.android/avd/Pixel_5_API_31.avd]" />
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,11 +31,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ios/Classes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -131,6 +133,18 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Always return transfer rate with Mb/s instead of Kb/s" />
@@ -140,45 +154,5 @@
     <MESSAGE value="Fix iOS progress issue" />
     <MESSAGE value="Migration to null-safety" />
     <option name="LAST_COMMIT_MESSAGE" value="Migration to null-safety" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="100" y="123" width="1720" height="783" key="AVDManager" timestamp="1622290063282">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.983@0.23.1920.983" timestamp="1622289736060" />
-    <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.985@0.23.1920.985" timestamp="1622290063282" />
-    <state x="345" y="90" key="CommitChangelistDialog2" timestamp="1622292202145">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state x="345" y="90" key="CommitChangelistDialog2/0.23.1920.985@0.23.1920.985" timestamp="1622292202145" />
-    <state width="1473" height="266" key="GridCell.Tab.0.bottom" timestamp="1622291957965">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.bottom/0.23.1920.985@0.23.1920.985" timestamp="1622291957965" />
-    <state width="1473" height="266" key="GridCell.Tab.0.center" timestamp="1622291957964">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.center/0.23.1920.985@0.23.1920.985" timestamp="1622291957964" />
-    <state width="1473" height="266" key="GridCell.Tab.0.left" timestamp="1622291957963">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.left/0.23.1920.985@0.23.1920.985" timestamp="1622291957963" />
-    <state width="1473" height="266" key="GridCell.Tab.0.right" timestamp="1622291957964">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state width="1473" height="266" key="GridCell.Tab.0.right/0.23.1920.985@0.23.1920.985" timestamp="1622291957964" />
-    <state x="469" y="153" key="SettingsEditor" timestamp="1622289397305">
-      <screen x="0" y="23" width="1920" height="983" />
-    </state>
-    <state x="469" y="153" key="SettingsEditor/0.23.1920.983@0.23.1920.983" timestamp="1622289397305" />
-    <state x="357" y="254" key="Vcs.Push.Dialog.v2" timestamp="1622292204913">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state x="357" y="254" key="Vcs.Push.Dialog.v2/0.23.1920.985@0.23.1920.985" timestamp="1622292204913" />
-    <state width="440" height="149" key="javadoc.popup.new" timestamp="1622289834496">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state width="440" height="148" key="javadoc.popup.new/0.23.1920.983@0.23.1920.983" timestamp="1622289636298" />
-    <state width="440" height="149" key="javadoc.popup.new/0.23.1920.985@0.23.1920.985" timestamp="1622289834496" />
   </component>
 </project>

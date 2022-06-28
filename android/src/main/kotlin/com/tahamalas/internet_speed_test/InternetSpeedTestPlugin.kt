@@ -1,6 +1,8 @@
 package com.tahamalas.internet_speed_test
 
 import android.app.Activity
+import android.content.Context
+import androidx.annotation.NonNull
 import fr.bmartel.speedtest.SpeedTestReport
 import fr.bmartel.speedtest.SpeedTestSocket
 import fr.bmartel.speedtest.inter.IRepeatListener
@@ -10,19 +12,24 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
+import io.flutter.embedding.engine.plugins.FlutterPlugin
+import io.flutter.embedding.engine.plugins.activity.ActivityAware
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 
 
 /** InternetSpeedTestPlugin */
-public class InternetSpeedTestPlugin(internal var activity: Activity, internal var methodChannel: MethodChannel, registrar: Registrar) : MethodCallHandler {
-
+public class InternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     private var result: Result? = null
     private var speedTestSocket: SpeedTestSocket = SpeedTestSocket()
 
-
-    init {
-        this.methodChannel.setMethodCallHandler(this)
+    private lateinit var methodChannel: MethodChannel
+    private var activity: Activity? = null
+    private var applicationContext: Context? = null
+    override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        applicationContext = flutterPluginBinding.applicationContext
+        methodChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "internet_speed_test")
+        methodChannel.setMethodCallHandler(this)
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
@@ -34,20 +41,34 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
         }
     }
 
+    override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+        activity = null
+        applicationContext = null
+        methodChannel.setMethodCallHandler(null)
+    }
+
+    override fun onDetachedFromActivity() {
+        activity = null
+    }
+
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        activity = binding.activity
+    }
+
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        activity = binding.activity
+    }
+
+    override fun onDetachedFromActivityForConfigChanges() {
+        activity = null
+    }
+
     private fun mapToCall(result: Result, arguments: Any?) {
         val argsMap = arguments as Map<*, *>
 
         when (val args = argsMap["id"] as Int) {
             CallbacksEnum.START_DOWNLOAD_TESTING.ordinal -> startListening(args, result, "startDownloadTesting", argsMap["testServer"] as String)
             CallbacksEnum.START_UPLOAD_TESTING.ordinal -> startListening(args, result, "startUploadTesting", argsMap["testServer"] as String)
-        }
-    }
-
-    companion object {
-        @JvmStatic
-        fun registerWith(registrar: Registrar) {
-            val channel = MethodChannel(registrar.messenger(), "internet_speed_test")
-            channel.setMethodCallHandler(InternetSpeedTestPlugin(registrar.activity(), channel, registrar))
         }
     }
 
@@ -69,7 +90,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                             override fun onComplete(transferRate: Double) {
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.COMPLETE.ordinal
-                                activity.runOnUiThread {
+                                activity!!.runOnUiThread {
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
@@ -78,7 +99,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                                 argsMap["speedTestError"] = speedTestError
                                 argsMap["errorMessage"] = errorMessage
                                 argsMap["type"] = ListenerEnum.ERROR.ordinal
-                                activity.runOnUiThread {
+                                activity!!.runOnUiThread {
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
@@ -88,7 +109,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                                 argsMap["percent"] = percent
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.PROGRESS.ordinal
-                                activity.runOnUiThread {
+                                activity!!.runOnUiThread {
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
@@ -99,7 +120,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                             override fun onComplete(transferRate: Double) {
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.COMPLETE.ordinal
-                                activity.runOnUiThread {
+                                activity!!.runOnUiThread {
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
@@ -108,7 +129,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                                 argsMap["speedTestError"] = speedTestError
                                 argsMap["errorMessage"] = errorMessage
                                 argsMap["type"] = ListenerEnum.ERROR.ordinal
-                                activity.runOnUiThread {
+                                activity!!.runOnUiThread {
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
@@ -117,7 +138,7 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
                                 argsMap["percent"] = percent
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.PROGRESS.ordinal
-                                activity.runOnUiThread {
+                                activity!!.runOnUiThread {
                                     methodChannel.invokeMethod("callListener", argsMap)
                                 }
                             }
