@@ -102,11 +102,9 @@ public final class SpeedTest {
         hosts.forEach { url in
             group.enter()
             pingService.ping(url: url, timeout: timeout, closure: { result in
-                print("Url is \(url)")
                 switch result {
                 case .error(_): break
                 case .value(let ping):
-                    print("ping is \(ping)")
                     pings.append((url, ping))
                 }
                 group.leave()

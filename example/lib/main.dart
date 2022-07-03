@@ -42,7 +42,6 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   internetSpeedTest.startDownloadTesting(
                     onDone: (double transferRate, SpeedUnit unit) {
-                      print('the transfer rate $transferRate');
                       setState(() {
                         downloadRate = transferRate;
                         unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
@@ -51,18 +50,13 @@ class _MyAppState extends State<MyApp> {
                     },
                     onProgress:
                         (double percent, double transferRate, SpeedUnit unit) {
-                      print(
-                          'the transfer rate $transferRate, the percent $percent');
                       setState(() {
                         downloadRate = transferRate;
                         unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
                         downloadProgress = percent.toStringAsFixed(2);
                       });
                     },
-                    onError: (String errorMessage, String speedTestError) {
-                      print(
-                          'the errorMessage $errorMessage, the speedTestError $speedTestError');
-                    },
+                    onError: (String errorMessage, String speedTestError) {},
                     fileSize: 20000000,
                   );
                 },
@@ -79,7 +73,6 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   internetSpeedTest.startUploadTesting(
                     onDone: (double transferRate, SpeedUnit unit) {
-                      print('the transfer rate $transferRate');
                       setState(() {
                         uploadRate = transferRate;
                         unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
@@ -88,9 +81,7 @@ class _MyAppState extends State<MyApp> {
                     },
                     onProgress:
                         (double percent, double transferRate, SpeedUnit unit) {
-                      print(
-                          'the transfer rate $transferRate, the percent $percent');
-                      setState(() {
+                     setState(() {
                         uploadRate = transferRate;
                         unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
                         uploadProgress = percent.toStringAsFixed(2);

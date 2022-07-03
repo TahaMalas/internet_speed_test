@@ -27,9 +27,6 @@ class InternetSpeedTest {
   int uploadSteps = 0;
 
   Future<void> _methodCallHandler(MethodCall call) async {
-    print('arguments are ${call.arguments}');
-//    print('arguments type is  ${call.arguments['type']}');
-    print('callbacks are $_callbacksById');
     switch (call.method) {
       case 'callListener':
         if (call.arguments["id"] as int ==
@@ -38,8 +35,6 @@ class InternetSpeedTest {
             downloadSteps++;
             downloadRate +=
                 int.parse((call.arguments['transferRate'] ~/ 1000).toString());
-            print('download steps is $downloadSteps}');
-            print('download steps is $downloadRate}');
             double average = (downloadRate ~/ downloadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
             average /= 1000;
@@ -49,8 +44,6 @@ class InternetSpeedTest {
             downloadRate = 0;
             _callbacksById.remove(call.arguments["id"]);
           } else if (call.arguments['type'] == ListenerEnum.ERROR.index) {
-            print('onError : ${call.arguments["speedTestError"]}');
-            print('onError : ${call.arguments["errorMessage"]}');
             _callbacksById[call.arguments["id"]]!.item1(
                 call.arguments['errorMessage'],
                 call.arguments['speedTestError']);
@@ -59,7 +52,6 @@ class InternetSpeedTest {
             _callbacksById.remove(call.arguments["id"]);
           } else if (call.arguments['type'] == ListenerEnum.PROGRESS.index) {
             double rate = (call.arguments['transferRate'] ~/ 1000).toDouble();
-            print('rate is $rate');
             if (rate != 0) downloadSteps++;
             downloadRate += rate.toInt();
             SpeedUnit unit = SpeedUnit.Kbps;
@@ -71,13 +63,10 @@ class InternetSpeedTest {
         } else if (call.arguments["id"] as int ==
             CallbacksEnum.START_UPLOAD_TESTING.index) {
           if (call.arguments['type'] == ListenerEnum.COMPLETE.index) {
-            print('onComplete : ${call.arguments['transferRate']}');
 
             uploadSteps++;
             uploadRate +=
                 int.parse((call.arguments['transferRate'] ~/ 1000).toString());
-            print('download steps is $uploadSteps}');
-            print('download steps is $uploadRate}');
             double average = (uploadRate ~/ uploadSteps).toDouble();
             SpeedUnit unit = SpeedUnit.Kbps;
             average /= 1000;
@@ -87,14 +76,11 @@ class InternetSpeedTest {
             uploadRate = 0;
             _callbacksById.remove(call.arguments["id"]);
           } else if (call.arguments['type'] == ListenerEnum.ERROR.index) {
-            print('onError : ${call.arguments["speedTestError"]}');
-            print('onError : ${call.arguments["errorMessage"]}');
             _callbacksById[call.arguments["id"]]!.item1(
                 call.arguments['errorMessage'],
                 call.arguments['speedTestError']);
           } else if (call.arguments['type'] == ListenerEnum.PROGRESS.index) {
             double rate = (call.arguments['transferRate'] ~/ 1000).toDouble();
-            print('rate is $rate');
             if (rate != 0) uploadSteps++;
             uploadRate += rate.toInt();
             SpeedUnit unit = SpeedUnit.Kbps;
@@ -122,7 +108,6 @@ class InternetSpeedTest {
       int fileSize = 200000}) async {
     _channel.setMethodCallHandler(_methodCallHandler);
     int currentListenerId = callbacksEnum.index;
-    print('test $currentListenerId');
     _callbacksById[currentListenerId] = callback;
     await _channel.invokeMethod(
       "startListening",
