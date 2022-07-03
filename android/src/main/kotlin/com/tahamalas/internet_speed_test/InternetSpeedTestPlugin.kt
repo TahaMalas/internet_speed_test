@@ -27,9 +27,9 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         this.result = result
-        when {
-            call.method == "startListening" -> mapToCall(result, call.arguments)
-            call.method == "cancelListening" -> cancelListening(call.arguments, result)
+        when (call.method) {
+            "startListening" -> mapToCall(result, call.arguments)
+            "cancelListening" -> cancelListening(call.arguments, result)
             else -> result.notImplemented()
         }
     }
@@ -44,25 +44,24 @@ public class InternetSpeedTestPlugin(internal var activity: Activity, internal v
     }
 
     companion object {
+
         @JvmStatic
         fun registerWith(registrar: Registrar) {
             val channel = MethodChannel(registrar.messenger(), "internet_speed_test")
-            channel.setMethodCallHandler(InternetSpeedTestPlugin(registrar.activity(), channel, registrar))
+            val activity = registrar.activity()
+            val plugin = activity?.let { InternetSpeedTestPlugin(it, channel, registrar) }
+            channel.setMethodCallHandler(plugin)
         }
     }
 
     private val callbackById: MutableMap<Int, Runnable> = mutableMapOf()
 
-    fun startListening(args: Any, result: Result, methodName: String, testServer: String) {
-        // Get callback id
-        println("testttt")
+    private fun startListening(args: Any, result: Result, methodName: String, testServer: String) {
         val currentListenerId = args as Int
-        println("testttt")
         val runnable = Runnable {
             if (callbackById.containsKey(currentListenerId)) {
                 val argsMap: MutableMap<String, Any> = mutableMapOf()
                 argsMap["id"] = currentListenerId
-                println("testttt $currentListenerId")
                 when (methodName) {
                     "startDownloadTesting" -> {
                         testDownloadSpeed(object : TestListener {
